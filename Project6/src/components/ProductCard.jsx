@@ -1,6 +1,10 @@
 import React from 'react'
+import { useContext } from 'react'
+import { MyStore } from '../context/MyContext'
 
-function ProductCard({ product , setCartItems}) {
+function ProductCard({ product }) {
+
+  let {setCartItems} = useContext(MyStore);
   return (
     <div className="m-4 w-72 overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
 

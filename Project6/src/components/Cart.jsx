@@ -1,6 +1,11 @@
 import React from "react";
+import { useContext } from "react";
+import { MyStore } from "../context/MyContext";
 
-const Cart = ({ cartItems }) => {
+const Cart = () => {
+
+ let { cartItems } = useContext(MyStore);
+
   return (
     <div className="min-h-screen bg-gray-100 px-6 py-10">
       <div className="mx-auto max-w-5xl">
@@ -14,7 +19,7 @@ const Cart = ({ cartItems }) => {
           <p className="mt-1 text-gray-500">
             {cartItems.length} item(s) in your cart
           </p>
-        </div>
+        </div> 
 
         {/* Empty Cart */}
         {cartItems.length === 0 ? (

@@ -1,7 +1,10 @@
 import React from 'react'
+import { useContext } from 'react'
+import { MyStore } from '../context/MyContext'
 
+function Navbar() {
 
-function Navbar({setIsCartOpen , cartItems}) {
+  let { setIsCartOpen , cartItems } = useContext(MyStore);
   return (
     <nav className="sticky top-0 z-50 border-b bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">

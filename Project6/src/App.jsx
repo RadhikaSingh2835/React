@@ -3,10 +3,12 @@ import Navbar from "./components/Navbar";
 import ProductCard from "./components/ProductCard";
 import { useState } from "react";
 import Cart from "./components/Cart";
+import { useContext } from "react";
+import { MyStore } from "./context/MyContext";
 
 const App = () => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems , setCartItems] = useState([]);
+
+  const {isCartOpen} = useContext(MyStore);
 
   const products = [
     {
@@ -270,17 +272,16 @@ const App = () => {
       },
     },
   ];
-
   return (
     <>
-      <Navbar setIsCartOpen={setIsCartOpen} cartItems={cartItems}/>
+      <Navbar/>
       <main className="bg-gray-100 px-6 py-10">
         {isCartOpen ? (
-          <Cart cartItems={cartItems}/>
+          <Cart/>
         ) : (
           <div className="mx-auto flex max-w-7xl flex-wrap justify-center gap-6">
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} setCartItems={setCartItems} />
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         )}
